@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Pembayaran QRIS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f6f8;
+padding-bottom:120px;
+color:#111827;
+}
+
+.header{
+background:linear-gradient(135deg,#1738b8,#4160ff);
+padding:35px 20px;
+color:white;
+text-align:center;
+}
+
+.header h1{
+font-size:30px;
+font-weight:800;
+}
+
+.header p{
+margin-top:8px;
+opacity:.9;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+border-radius:24px;
+padding:22px;
+margin-bottom:18px;
+box-shadow:0 8px 25px rgba(0,0,0,.05);
+border:1px solid #edf0f4;
+}
+
+.title{
+font-size:20px;
+font-weight:700;
+margin-bottom:15px;
+color:#4160ff;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+margin:12px 0;
+}
+
+.total{
+font-size:28px;
+font-weight:800;
+color:#4160ff;
+}
+
+.qris-box{
+text-align:center;
+}
+
+.qris-box img{
+width:280px;
+max-width:100%;
+border-radius:20px;
+border:1px solid #e5e7eb;
+}
+
+.timer{
+margin-top:18px;
+font-size:38px;
+font-weight:800;
+color:#ff4d4f;
+}
+
+.note{
+margin-top:12px;
+font-size:14px;
+color:#666;
+}
+
+.upload-box{
+border:2px dashed #cfd7e6;
+border-radius:18px;
+padding:20px;
+text-align:center;
+cursor:pointer;
+}
+
+.upload-box:hover{
+background:#f9fbff;
+}
+
+input[type=file]{
+display:none;
+}
+
+.preview{
+margin-top:15px;
+display:none;
+}
+
+.preview img{
+width:100%;
+border-radius:16px;
+}
+
+label{
+display:block;
+margin-top:15px;
+font-weight:600;
+}
+
+input,select{
+width:100%;
+padding:14px;
+border-radius:14px;
+border:1px solid #dce2ea;
+margin-top:8px;
+font-size:15px;
+}
+
+.progress{
+height:14px;
+background:#e5e7eb;
+border-radius:999px;
+overflow:hidden;
+margin-top:15px;
+display:none;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#4160ff,#6b8cff);
+transition:.3s;
+}
+
+.bottom{
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+background:white;
+padding:15px;
+box-shadow:0 -5px 20px rgba(0,0,0,.08);
+}
+
+.btn{
+width:100%;
+padding:18px;
+border:none;
+border-radius:16px;
+background:linear-gradient(135deg,#1738b8,#4160ff);
+color:white;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+}
+
+.btn:hover{
+opacity:.95;
+}
+
+.status{
+text-align:center;
+margin-top:10px;
+font-size:14px;
+color:#666;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Pembayaran QRIS</h1>
+<p>Selesaikan pembayaran sebelum waktu habis</p>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<div class="title">
+Ringkasan Pesanan
+</div>
+
+<div class="row">
+<span>Nama</span>
+<strong id="nama">-</strong>
+</div>
+
+<div class="row">
+<span>Jenis Tiket</span>
+<strong id="jenis">-</strong>
+</div>
+
+<div class="row">
+<span>Jumlah Tiket</span>
+<strong id="jumlah">-</strong>
+</div>
+
+<div class="row total">
+<span>Total</span>
+<span id="total">Rp0</span>
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="title">
+Scan QRIS
+</div>
+
+<div class="qris-box">
+
+<img src="qris.png" alt="QRIS">
+
+<div class="timer" id="timer">
+15:00
+</div>
+
+<div class="note">
+Silakan scan QRIS di atas dan lakukan pembayaran sesuai nominal.
+</div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="title">
+Upload Bukti Pembayaran
+</div>
+
+<label class="upload-box">
+
+📤 Klik Untuk Upload Bukti
+
+<input type="file"
+accept="image/*"
+id="bukti">
+
+</label>
+
+<div class="preview" id="preview">
+<img id="previewImg">
+</div>
+
+<label>Nama Pengirim</label>
+<input id="pengirim">
+
+<label>Metode Pembayaran</label>
+<select id="metode">
+<option value="">Pilih Metode</option>
+<option>DANA</option>
+<option>OVO</option>
+<option>GOPAY</option>
+<option>SHOPEEPAY</option>
+<option>QRIS</option>
+<option>BCA</option>
+<option>BRI</option>
+<option>MANDIRI</option>
+</select>
+
+<div class="progress" id="progress">
+<div class="progress-bar" id="bar"></div>
+</div>
+
+<div class="status" id="status">
+Menunggu upload bukti pembayaran
+</div>
+
+</div>
+
+</div>
+
+<div class="bottom">
+
+<button class="btn"
+onclick="kirimBukti()">
+
+KIRIM BUKTI PEMBAYARAN
+
+</button>
+
+</div>
+
+<script>
+
+const nama =
+localStorage.getItem('nama') || '-';
+
+const jenis =
+localStorage.getItem('jenisTiket') || '-';
+
+const jumlah =
+localStorage.getItem('jumlahTiket') || '1';
+
+const total =
+parseInt(
+localStorage.getItem('totalPembayaran') || 0
+);
+
+document.getElementById('nama').innerText =
+nama;
+
+document.getElementById('jenis').innerText =
+jenis;
+
+document.getElementById('jumlah').innerText =
+jumlah;
+
+document.getElementById('total').innerText =
+'Rp' + total.toLocaleString('id-ID');
+
+let time = 900;
+
+const timer =
+document.getElementById('timer');
+
+const countdown =
+setInterval(()=>{
+
+let min =
+Math.floor(time/60);
+
+let sec =
+time%60;
+
+timer.innerText =
+String(min).padStart(2,'0')
++
+':'
++
+String(sec).padStart(2,'0');
+
+time--;
+
+if(time < 0){
+
+clearInterval(countdown);
+
+alert(
+'Waktu pembayaran habis'
+);
+
+location.reload();
+
+}
+
+},1000);
+
+document.getElementById('bukti')
+.addEventListener('change',function(){
+
+const file =
+this.files[0];
+
+if(!file) return;
+
+const reader =
+new FileReader();
+
+reader.onload=function(e){
+
+document.getElementById(
+'preview'
+).style.display='block';
+
+document.getElementById(
+'previewImg'
+).src=e.target.result;
+
+}
+
+reader.readAsDataURL(file);
+
+});
+
+function kirimBukti(){
+
+if(
+!document.getElementById('bukti').files.length
+){
+alert('Upload bukti pembayaran.');
+return;
+}
+
+if(
+!document.getElementById('pengirim').value
+){
+alert('Isi nama pengirim.');
+return;
+}
+
+if(
+!document.getElementById('metode').value
+){
+alert('Pilih metode pembayaran.');
+return;
+}
+
+localStorage.setItem(
+'namaPengirim',
+document.getElementById('pengirim').value
+);
+
+localStorage.setItem(
+'metodePembayaran',
+document.getElementById('metode').value
+);
+
+const progress =
+document.getElementById('progress');
+
+const bar =
+document.getElementById('bar');
+
+const status =
+document.getElementById('status');
+
+progress.style.display='block';
+
+let p = 0;
+
+status.innerText =
+'Mengupload bukti pembayaran...';
+
+const upload =
+setInterval(()=>{
+
+p += 10;
+
+bar.style.width =
+p + '%';
+
+if(p >= 100){
+
+clearInterval(upload);
+
+status.innerText =
+'Bukti berhasil dikirim. Mengalihkan...';
+
+setTimeout(()=>{
+
+window.location.href =
+'success.html';
+
+},1500);
+
+}
+
+},200);
+
+}
+
+</script>
+
+</body>
+</html>
