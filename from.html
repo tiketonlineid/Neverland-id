@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FROM.HTML FINAL</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
+body{background:#f5f6f8;padding-bottom:120px}
+.header{background:#4160ff;color:#fff;padding:30px;text-align:center}
+.container{max-width:900px;margin:auto;padding:20px}
+.card{background:#fff;border-radius:24px;padding:20px;margin-bottom:18px;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+.title{font-size:20px;font-weight:700;margin-bottom:15px}
+.row{display:flex;justify-content:space-between;margin:10px 0}
+input,select,textarea{width:100%;padding:14px;border:1px solid #ddd;border-radius:12px;margin-top:8px}
+label{display:block;margin-top:12px;font-weight:600}
+.footer{position:fixed;left:0;right:0;bottom:0;background:#fff;padding:16px;box-shadow:0 -4px 20px rgba(0,0,0,.08)}
+.btn{width:100%;padding:16px;border:none;border-radius:14px;background:#4160ff;color:#fff;font-size:18px;font-weight:700}
+.total{font-size:24px;font-weight:800;color:#4160ff}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>Form Pemesanan Tiket</h1>
+<p>Data tiket otomatis dari halaman sebelumnya</p>
+</div>
+
+<div class="container">
+
+<div class="card">
+<div class="title">Ringkasan Pesanan</div>
+<div class="row"><span>Jenis Tiket</span><b id="jenis">-</b></div>
+<div class="row"><span>Jumlah Tiket</span><b id="jumlah">0</b></div>
+<div class="row"><span>Total</span><b class="total" id="total">Rp0</b></div>
+</div>
+
+<div class="card">
+<div class="title">Data Pemesan</div>
+
+<label>Nama Lengkap</label>
+<input id="nama">
+
+<label>Email</label>
+<input id="email" type="email">
+
+<label>WhatsApp</label>
+<input id="wa">
+
+<label>Jenis Identitas</label>
+<select id="identitas">
+<option>KTP</option>
+<option>SIM</option>
+<option>Paspor</option>
+</select>
+
+<label>Nomor Identitas</label>
+<input id="nomor">
+
+<label>Alamat</label>
+<textarea id="alamat"></textarea>
+</div>
+
+<div class="card">
+<label><input type="checkbox" id="s1"> Data yang saya isi benar</label><br><br>
+<label><input type="checkbox" id="s2"> Saya setuju syarat & ketentuan</label>
+</div>
+
+</div>
+
+<div class="footer">
+<button class="btn" onclick="lanjut()">LANJUT PEMBAYARAN</button>
+</div>
+
+<script>
+document.getElementById('jenis').innerText=localStorage.getItem('jenisTiket')||'PRESALE - FESTIVAL';
+document.getElementById('jumlah').innerText=localStorage.getItem('jumlahTiket')||'1';
+let total=localStorage.getItem('totalPembayaran')||'140000';
+document.getElementById('total').innerText='Rp'+Number(total).toLocaleString('id-ID');
+
+function lanjut(){
+if(!nama.value||!email.value||!wa.value||!nomor.value||!alamat.value){alert('Lengkapi data');return;}
+if(!s1.checked||!s2.checked){alert('Centang persetujuan');return;}
+localStorage.setItem('nama',nama.value);
+localStorage.setItem('email',email.value);
+localStorage.setItem('wa',wa.value);
+window.location.href='qris.html';
+}
+</script>
+</body>
+</html>
