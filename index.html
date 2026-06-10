@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Artatix Style</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#f5f6f8;color:#111827}
+.header{background:#1738b8;height:92px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;color:#fff}
+.logo{font-size:42px;font-weight:700}
+.menu{display:flex;gap:12px}
+.menu div{width:58px;height:58px;border-radius:50%;background:#2d55ea}
+.banner img{width:100%;display:block;object-fit:cover}
+.container{max-width:900px;margin:auto;padding:32px}
+.tag{display:inline-block;background:#e8edff;color:#4160ff;padding:10px 18px;border-radius:12px;font-weight:600}
+h1{font-size:clamp(32px,4vw,54px);margin:20px 0}
+.section-title{font-size:20px;margin:30px 0 15px;font-weight:700}
+.detail{display:flex;gap:16px;margin:18px 0;font-size:18px}
+.icon{width:42px;height:42px;border-radius:50%;background:#dce6ff}
+.org{display:flex;align-items:center;gap:18px}
+.org img{width:70px;height:70px;border-radius:50%}
+.muted{color:#75849a;font-size:18px;font-weight:600;margin-top:30px}
+.social{display:flex;gap:16px;flex-wrap:wrap;margin-top:15px}
+.social a{text-decoration:none;background:#eaf0f7;color:#4160ff;padding:14px 24px;border-radius:999px;font-weight:600}
+.tabs{display:flex;gap:34px;overflow:auto;margin-top:35px;border-bottom:1px solid #ddd}
+.tab{padding-bottom:14px;cursor:pointer;color:#7b8799;white-space:nowrap}
+.tab.active{color:#000;border-bottom:4px solid #4160ff}
+.tabcontent{display:none;padding-top:24px;line-height:1.9;font-size:18px}
+.tabcontent.active{display:block}
+.talent{display:flex;align-items:center;gap:15px;margin:18px 0}
+.talent img{width:68px;height:68px;border-radius:12px}
+.facilities{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.facility{font-size:18px}
+.ticket-card{background:#eaf0f7;border-radius:30px;padding:24px;margin:30px 0}
+.price-row{display:flex;justify-content:space-between;font-size:18px;font-weight:700}
+.buy{display:block;text-align:center;background:#3f61f3;color:white;text-decoration:none;padding:18px;border-radius:18px;margin-top:18px;font-size:22px;font-weight:600;transition:.3s}
+.buy:hover{transform:translateY(-2px)}
+.sticky{position:sticky;bottom:10px}
+@media(max-width:768px){
+.container{padding:22px}
+.logo{font-size:32px}
+.menu div{width:48px;height:48px}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="logo">
+    <img src="logo-header.png" alt="Logo">
+</div>
+
+<div class="banner">
+<div class="logo">
+    <img src="banner-header.png" alt="Logo">
+</div>
+
+<div class="container">
+
+<div class="tag">🎵 Musik</div>
+
+<h1>NEVERLAND BANDUNG</h1>
+
+<div class="section-title">Detail Acara</div>
+
+<div class="detail"><div class="icon"></div><div>16 Agustus 2026</div></div>
+<div class="detail"><div class="icon"></div><div>14:00 - 23:00</div></div>
+<div class="detail"><div class="icon"></div><div>Pangkalan TNI AU Husein Sastranegara, Kota Bandung, Jawa Barat</div></div>
+
+<div class="muted">Penyelenggara</div>
+<div class="org">
+<img src="https://via.placeholder.com/100" alt="logo">
+<div style="font-size:22px;font-weight:600">Neverland</div>
+</div>
+
+<div class="muted">Media Sosial</div>
+<div class="social">
+<a href="#">Instagram</a>
+<a href="#">TikTok</a>
+</div>
+
+<div class="tabs">
+<div class="tab active" onclick="openTab(event,'deskripsi')">Deskripsi</div>
+<div class="tab" onclick="openTab(event,'syarat')">Syarat & Ketentuan</div>
+<div class="tab" onclick="openTab(event,'talent')">Talent</div>
+<div class="tab" onclick="openTab(event,'fasilitas')">Fasilitas</div>
+</div>
+
+<div id="deskripsi" class="tabcontent active">
+<h2>Deskripsi</h2>
+<p>Neverland terinspirasi dari makna Neverland sebagai tempat untuk bermain, berpetualang, dan melepas sejenak beban kehidupan sehari-hari. Festival ini hadir sebagai ruang pelarian sementara, tempat di mana semua orang bisa bersenang-senang, menikmati musik, dan kembali merasakan kebebasan tanpa tuntutan.
+Lewat deretan penampil pilihan dan pengalaman yang dikurasi khusus, Neverland mengajak penonton untuk bernyanyi, menari, dan menciptakan momen bersama. Di sini, musik menjadi alasan untuk berkumpul, tertawa, dan menikmati hari sepenuhnya. Neverland adalah tentang menikmati sekarang, tanpa beban, dan pulang dengan cerita. Sound on, let's play the game!
+</p>
+</div>
+
+<div id="syarat" class="tabcontent">
+<h2>Syarat & Ketentuan</h2>
+<ul>
+<li>Tiket yang sah dan berlaku adalah tiket yang dibeli melalui kanal penjualan tiket resmi Neverland Festival.
+</li>
+<li>Satu Tiket berlaku untuk satu (1) orang. 
+Tiket kategori Festival hanya berlaku untuk satu (1) kali akses masuk ke area acara.
+Tiket kategori VIP memberikan akses masuk dan re-entry hingga maksimal tiga (3) kali selama acara berlangsung sesuai ketentuan Panitia.
+</li>
+<li>Panitia dan Promotor tidak bertanggung jawab serta tidak memberikan penggantian dalam bentuk apapun atas pembelian tiket yang dilakukan melalui calo, pihak ketiga, atau kanal yang bukan mitra resmi penjualan tiket Neverland Music Festival.
+</li>
+<li>Tiket yang hilang, rusak, atau dicuri tidak dapat diganti atau diterbitkan ulang, meskipun pemegang tiket memiliki bukti pembelian. Tiket sepenuhnya merupakan tanggung jawab pemilik.
+</>
+Panitia, Promotor, dan Pengisi Acara tidak bertanggung jawab atas biaya transportasi, akomodasi, maupun pengeluaran lainnya yang telah dikeluarkan penonton apabila acara dibatalkan atau dipindahkan ke tanggal dan/atau waktu lain.
+</li>
+<li>Dalam keadaan kahar (force majeure) seperti bencana alam, kerusuhan, perang, wabah penyakit, atau keadaan darurat lain yang ditetapkan secara resmi oleh Pemerintah, Panitia/Penyelenggara/Promotor berhak membatalkan dan/atau mengubah jadwal serta tata letak acara tanpa pemberitahuan sebelumnya.
+</li>
+<li>Panitia/Penyelenggara/Promotor berhak untuk mengubah waktu acara, susunan pengisi acara, tata letak venue, serta kapasitas penonton tanpa pemberitahuan sebelumnya.
+</li>
+<li>Apabila acara dibatalkan, Promotor akan mengembalikan dana pembelian tiket dalam jangka waktu yang akan diinformasikan lebih lanjut, dengan ketentuan pengembalian dana dapat dikenakan potongan biaya administrasi, biaya bank, dan/atau biaya lainnya.
+Panitia, Promotor, Pengelola Venue, dan Pengisi Acara tidak bertanggung jawab atas kehilangan barang pribadi, kerusakan, maupun cedera yang dialami penonton di seluruh area acara selama acara berlangsung
+</li>
+<li>Penonton wajib membawa kartu identitas dan e-ticket resmi saat melakukan penukaran atau pemindaian tiket.
+</li>
+<li>Atribut bermuatan politik, SARA, dan kelompok tertentu
+Makanan dan minuman dari luar venue
+Kamera profesional (DSLR/SLR), drone
+Tongsis / selfie stick
+Alkohol, narkotika, psikotropika, dan zat berbahaya
+Senjata, bahan peledak, benda berbahaya
+Cairan mudah terbakar, laser, dan pointer
+Barang lain yang membahayakan diri sendiri maupun orang lain
+Panitia dan Promotor berhak menyita dan tidak mengembalikan barang terlarang yang ditemukan saat pemeriksaan.
+Dilarang membuat kerusuhan atau tindakan yang mengganggu ketertiban umum di dalam area acara.
+</li>
+<li>Dilarang membawa barang terlarang.</li>
+</ul>
+</div>
+
+<div id="talent" class="tabcontent">
+<h2>Talent</h2>
+<div class="talent"><img src="https://talen-1.jpg"><div>LAVORA</div></div>
+<div class="talent"><img src="https://talen-2.jpg"><div>NDX AKA</div></div>
+<div class="talent"><img src="https://talent-3.jpg"><div>GUYON WATON</div></div>
+</div>
+
+<div id="fasilitas" class="tabcontent">
+<h2>Fasilitas Event</h2>
+<div class="facilities">
+<div class="facility">🍔 Food Court</div>
+<div class="facility">🏥 Medis</div>
+<div class="facility">🕌 Musholla</div>
+<div class="facility">🅿 Area Parkir</div>
+<div class="facility">📸 Photo Booth</div>
+<div class="facility">🚻 Toilet</div>
+</div>
+</div>
+
+<div class="ticket-card sticky">
+<div class="price-row">
+<div>Harga mulai dari</div>
+<div>Rp100.000</div>
+</div>
+<a class="buy" href="#">🎫 Beli Tiket</a>
+</div>
+
+</div>
+
+<script>
+function openTab(evt,id){
+document.querySelectorAll('.tabcontent').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+evt.currentTarget.classList.add('active');
+}
+</script>
+
+</body>
+</html>
