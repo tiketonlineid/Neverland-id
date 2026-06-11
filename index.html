@@ -3,112 +3,460 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Neverland Bandung</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Poppins,sans-serif;background:#f5f6f8;color:#091024}
-.container{max-width:480px;margin:auto;background:#fff;padding-bottom:170px}
-.banner img{width:100%;display:block}
-.category{display:inline-flex;align-items:center;gap:8px;background:#e8ecff;color:#4564d8;
-padding:10px 14px;border-radius:10px;font-weight:600;margin:22px 24px 8px}
-.title{font-size:28px;font-weight:700;padding:0 24px 20px}
-.section{padding:0 24px 10px}
-.section h3{font-size:18px;margin-bottom:16px}
-.detail{display:flex;gap:14px;margin-bottom:18px}
-.icon{width:34px;height:34px;border-radius:50%;background:#dfe7ff;color:#4f6ef0;
-display:flex;align-items:center;justify-content:center}
-.detail p{font-size:15px;font-weight:500}
-.label{font-size:16px;color:#6f7b8c;font-weight:600;margin:18px 0 14px}
-.organizer{display:flex;align-items:center;gap:14px}
-.organizer img{width:56px;height:56px;border-radius:50%;object-fit:cover}
-.tabs{position:sticky;top:0;background:#fff;display:flex;overflow:auto;border-bottom:1px solid #ececec}
-.tabs a{padding:16px 18px;color:#667387;font-weight:500;white-space:nowrap}
-.tabs a.active{color:#091024;border-bottom:3px solid #4165f5;font-weight:700}
-.content{padding:20px 24px}
-.content p{line-height:1.8;margin-bottom:18px}
-.talent-item{display:flex;align-items:center;gap:14px;margin:18px 0}
-.talent-item img{width:56px;height:56px;border-radius:10px;object-fit:cover}
-.facilities{display:grid;grid-template-columns:1fr 1fr;gap:20px 30px;margin-top:16px}
-.facility{display:flex;align-items:center;gap:12px;font-size:15px}
-.facility i{font-size:34px;color:#4165f5;width:40px}
-.ticket-box{
-position:fixed;left:50%;transform:translateX(-50%);
-bottom:20px;width:min(92%,460px);
-background:#eef2f7;border-radius:28px;padding:20px;box-shadow:0 8px 30px rgba(0,0,0,.08)
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
 }
-.price{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
-.price span:first-child{color:#758296;font-size:16px;font-weight:600}
-.price strong{font-size:22px}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#f5f5f7;
+color:#0f172a;
+}
+
+/* ================= NAVBAR ================= */
+
+.top{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100px;
+background:#1736b8;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 20px;
+z-index:9999;
+}
+
+.logo img{
+height:50px;
+width:auto;
+display:block;
+}
+
+.nav-right{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.lang-btn{
+height:60px;
+padding:0 22px;
+border:none;
+border-radius:999px;
+background:#2d4de0;
+color:#fff;
+font-size:22px;
+font-weight:600;
+display:flex;
+align-items:center;
+gap:10px;
+cursor:pointer;
+}
+
+.flag{
+font-size:24px;
+}
+
+.nav-btn{
+width:60px;
+height:60px;
+border:none;
+border-radius:50%;
+background:#2d4de0;
+color:#fff;
+font-size:24px;
+cursor:pointer;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* ================= CONTENT ================= */
+
+.main{
+padding-top:100px;
+}
+
+.banner img{
+width:100%;
+display:block;
+}
+
+.wrap{
+max-width:1200px;
+margin:auto;
+padding:30px;
+}
+
+.tag{
+display:inline-block;
+padding:10px 16px;
+background:#e9ecff;
+color:#4160ff;
+border-radius:12px;
+font-weight:600;
+}
+
+h1{
+font-size:36px;
+margin:20px 0;
+}
+
+h2{
+font-size:24px;
+margin-bottom:15px;
+}
+
+.item{
+display:flex;
+align-items:center;
+gap:15px;
+margin:18px 0;
+font-size:18px;
+}
+
+.ico{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#dfe7ff;
+flex-shrink:0;
+}
+
+.muted{
+color:#74839a;
+font-weight:600;
+margin-top:30px;
+}
+
+.org{
+display:flex;
+align-items:center;
+gap:15px;
+margin-top:15px;
+margin-bottom:30px;
+}
+
+.org img{
+width:80px;
+height:80px;
+border-radius:50%;
+object-fit:cover;
+}
+
+.social{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-top:15px;
+}
+
+.social a{
+text-decoration:none;
+background:#eaf0f7;
+padding:12px 20px;
+border-radius:999px;
+font-weight:600;
+color:#4160ff;
+}
+
+.tabs{
+display:flex;
+gap:30px;
+overflow:auto;
+margin-top:30px;
+border-bottom:1px solid #ddd;
+}
+
+.tab{
+padding-bottom:15px;
+color:#74839a;
+white-space:nowrap;
+}
+
+.active{
+color:#000;
+border-bottom:4px solid #4160ff;
+}
+
+.content{
+padding-top:25px;
+line-height:1.8;
+font-size:18px;
+}
+
+.talent{
+display:flex;
+align-items:center;
+gap:15px;
+margin:15px 0;
+}
+
+.talent img{
+width:70px;
+height:70px;
+border-radius:12px;
+object-fit:cover;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:15px;
+}
+
+.fac{
+background:#fff;
+padding:15px;
+border-radius:15px;
+}
+
+.card{
+background:#eaf0f7;
+padding:25px;
+border-radius:25px;
+margin-top:35px;
+}
+
+.price{
+display:flex;
+justify-content:space-between;
+font-size:22px;
+font-weight:700;
+}
+
 .btn{
-display:flex;justify-content:center;align-items:center;gap:10px;
-background:#3d61ef;color:#fff;text-decoration:none;
-padding:18px;border-radius:16px;font-weight:700;font-size:20px
+display:block;
+text-align:center;
+background:#4160ff;
+color:#fff;
+text-decoration:none;
+padding:18px;
+border-radius:18px;
+font-size:20px;
+font-weight:600;
+margin-top:20px;
+transition:.3s;
 }
+
+.btn:hover{
+opacity:.9;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.top{
+height:90px;
+padding:0 15px;
+}
+
+.logo img{
+height:40px;
+}
+
+.lang-btn{
+height:55px;
+padding:0 18px;
+font-size:18px;
+}
+
+.nav-btn{
+width:55px;
+height:55px;
+font-size:22px;
+}
+
+.main{
+padding-top:90px;
+}
+
+.wrap{
+padding:20px;
+}
+
+h1{
+font-size:28px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.price{
+font-size:18px;
+flex-direction:column;
+gap:10px;
+}
+
+}
+
 </style>
 </head>
+
 <body>
-<div class="container">
+
+<!-- NAVBAR -->
+
+<header class="top">
+
+<div class="logo">
+<img src="logo.png" alt="Logo">
+</div>
+
+<div class="nav-right">
+
+<button class="lang-btn">
+<span class="flag">🇮🇩</span>
+<span>ID</span>
+</button>
+
+<button class="nav-btn">
+🔍
+</button>
+
+<button class="nav-btn">
+☰
+</button>
+
+</div>
+
+</header>
+
+<div class="main">
+
+<!-- BANNER -->
 
 <div class="banner">
-<img src="banner-never.png" alt="Neverland">
+<img src="banner.png" alt="Banner Event">
 </div>
 
-<div class="category"><i class="fa-solid fa-music"></i> Musik</div>
-<div class="title">NEVERLAND BANDUNG</div>
+<!-- CONTENT -->
 
-<div class="section">
-<h3>Detail Acara</h3>
+<div class="wrap">
 
-<div class="detail"><div class="icon"><i class="fa-solid fa-calendar"></i></div><p>16 Agustus 2026</p></div>
-<div class="detail"><div class="icon"><i class="fa-solid fa-clock"></i></div><p>14:00 - 23:00</p></div>
-<div class="detail"><div class="icon"><i class="fa-solid fa-location-dot"></i></div><p>Pangkalan TNI AU Husein Sastranegara, Kota Bandung, Jawa Barat</p></div>
-
-<div class="label">Penyelenggara</div>
-<div class="organizer">
-<img src="logo-neverland.jpg">
-<strong>Neverland</strong>
+<div class="tag">
+🎵 Musik
 </div>
 
-<div class="label">Media Sosial</div>
+<h1>NEVERLAND BANDUNG</h1>
+
+<h2>Detail Acara</h2>
+
+<div class="item">
+<div class="ico"></div>
+<span>16 Agustus 2026</span>
+</div>
+
+<div class="item">
+<div class="ico"></div>
+<span>14:00 - 23:00</span>
+</div>
+
+<div class="item">
+<div class="ico"></div>
+<span>Pangkalan TNI AU Husein Sastranegara, Kota Bandung, Jawa Barat</span>
+</div>
+
+<div class="muted">
+Penyelenggara
+</div>
+
+<div class="org">
+<img src="organizer.png" alt="">
+<div>Neverland</div>
+</div>
+
+<div class="muted">
+Media Sosial
+</div>
+
+<div class="social">
+<a href="#">Instagram</a>
+<a href="#">TikTok</a>
 </div>
 
 <div class="tabs">
-<a class="active">Deskripsi</a>
-<a>Syarat & Ketentuan</a>
-<a>Talent</a>
-<a>Fasilitas</a>
+<div class="tab active">Deskripsi</div>
+<div class="tab">Syarat & Ketentuan</div>
+<div class="tab">Talent</div>
+<div class="tab">Fasilitas</div>
 </div>
 
 <div class="content">
-<p><b>Neverland</b> terinspirasi dari makna Neverland sebagai tempat untuk bermain, berpetualang dan melepas penat. Festival ini menghadirkan pengalaman musik yang seru dan penuh kebebasan.</p>
 
-<h2 style="margin:30px 0 16px">Talent</h2>
-<div class="talent-item"><img src="lavora.jpg"><strong>LAVORA</strong></div>
-<div class="talent-item"><img src="ndx.jpg"><strong>NDX AKA</strong></div>
-<div class="talent-item"><img src="guyon.jpg"><strong>GUYON WATON</strong></div>
+<h2>Deskripsi</h2>
 
-<h2 style="margin:40px 0 16px">Fasilitas Event</h2>
-<div class="facilities">
-<div class="facility"><i class="fa-solid fa-utensils"></i>Food Court</div>
-<div class="facility"><i class="fa-solid fa-circle-plus"></i>Medis</div>
-<div class="facility"><i class="fa-solid fa-mosque"></i>Musholla</div>
-<div class="facility"><i class="fa-solid fa-square-parking"></i>Area Parkir</div>
-<div class="facility"><i class="fa-solid fa-camera"></i>Photo Booth</div>
-<div class="facility"><i class="fa-solid fa-toilet"></i>Toilet</div>
-</div>
+<p>
+Neverland merupakan festival musik yang menghadirkan pengalaman hiburan,
+petualangan dan kebersamaan dalam satu acara yang spektakuler.
+</p>
+
+<h2>Talent</h2>
+
+<div class="talent">
+<img src="talent1.jpg">
+<div>LAVORA</div>
 </div>
 
+<div class="talent">
+<img src="talent2.jpg">
+<div>NDX AKA</div>
 </div>
 
-<div class="ticket-box">
+<div class="talent">
+<img src="talent3.jpg">
+<div>GUYON WATON</div>
+</div>
+
+<h2>Fasilitas Event</h2>
+
+<div class="grid">
+
+<div class="fac">🍔 Food Court</div>
+<div class="fac">🕌 Musholla</div>
+<div class="fac">🚻 Toilet</div>
+<div class="fac">🅿 Area Parkir</div>
+<div class="fac">📷 Photo Booth</div>
+<div class="fac">➕ Pos Medis</div>
+
+</div>
+
+<div class="card">
+
 <div class="price">
 <span>Harga mulai dari</span>
-<strong>Rp100.000</strong>
-</href="tiket.html" class="btn">
-🎫 Beli Tiket
+<span>Rp100.000</span>
 </div>
-  
+
+<a href="tiket.html" class="btn">
+🎫 Beli Tiket
+</a>
+
+</div>
+
+</div>
+</div>
+
+</div>
+
 </body>
 </html>
