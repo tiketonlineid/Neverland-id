@@ -4,424 +4,110 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Neverland Bandung</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:#f5f6f8;color:#091024}
+.container{max-width:480px;margin:auto;background:#fff;padding-bottom:170px}
+.banner img{width:100%;display:block}
+.category{display:inline-flex;align-items:center;gap:8px;background:#e8ecff;color:#4564d8;
+padding:10px 14px;border-radius:10px;font-weight:600;margin:22px 24px 8px}
+.title{font-size:28px;font-weight:700;padding:0 24px 20px}
+.section{padding:0 24px 10px}
+.section h3{font-size:18px;margin-bottom:16px}
+.detail{display:flex;gap:14px;margin-bottom:18px}
+.icon{width:34px;height:34px;border-radius:50%;background:#dfe7ff;color:#4f6ef0;
+display:flex;align-items:center;justify-content:center}
+.detail p{font-size:15px;font-weight:500}
+.label{font-size:16px;color:#6f7b8c;font-weight:600;margin:18px 0 14px}
+.organizer{display:flex;align-items:center;gap:14px}
+.organizer img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+.tabs{position:sticky;top:0;background:#fff;display:flex;overflow:auto;border-bottom:1px solid #ececec}
+.tabs a{padding:16px 18px;color:#667387;font-weight:500;white-space:nowrap}
+.tabs a.active{color:#091024;border-bottom:3px solid #4165f5;font-weight:700}
+.content{padding:20px 24px}
+.content p{line-height:1.8;margin-bottom:18px}
+.talent-item{display:flex;align-items:center;gap:14px;margin:18px 0}
+.talent-item img{width:56px;height:56px;border-radius:10px;object-fit:cover}
+.facilities{display:grid;grid-template-columns:1fr 1fr;gap:20px 30px;margin-top:16px}
+.facility{display:flex;align-items:center;gap:12px;font-size:15px}
+.facility i{font-size:34px;color:#4165f5;width:40px}
+.ticket-box{
+position:fixed;left:50%;transform:translateX(-50%);
+bottom:20px;width:min(92%,460px);
+background:#eef2f7;border-radius:28px;padding:20px;box-shadow:0 8px 30px rgba(0,0,0,.08)
 }
-
-body{
-    background:#f5f6f8;
-    color:#222;
+.price{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.price span:first-child{color:#758296;font-size:16px;font-weight:600}
+.price strong{font-size:22px}
+.btn{
+display:flex;justify-content:center;align-items:center;gap:10px;
+background:#3d61ef;color:#fff;text-decoration:none;
+padding:18px;border-radius:16px;font-weight:700;font-size:20px
 }
-
-/* =========================
-   NAVBAR
-========================= */
-
-.navbar{
-    height:120px;
-    background:#0b2da8;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 25px;
-}
-
-.logo img{
-    height:75px;
-    width:auto;
-    display:block;
-}
-
-.nav-right{
-    display:flex;
-    align-items:center;
-    gap:18px;
-}
-
-.lang-btn{
-    height:70px;
-    min-width:145px;
-    border:none;
-    border-radius:40px;
-    background:#2346d6;
-    color:#fff;
-    font-size:24px;
-    font-weight:600;
-    cursor:pointer;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:12px;
-}
-
-.flag{
-    width:30px;
-    height:30px;
-    border-radius:50%;
-    overflow:hidden;
-    background:
-    linear-gradient(
-        to bottom,
-        #ff0000 50%,
-        #ffffff 50%
-    );
-}
-
-.icon-btn{
-    width:70px;
-    height:70px;
-    border:none;
-    border-radius:50%;
-    background:#2346d6;
-    color:#fff;
-    font-size:30px;
-    cursor:pointer;
-}
-
-/* =========================
-   CONTENT
-========================= */
-
-.container{
-    max-width:900px;
-    margin:auto;
-    padding:25px;
-}
-
-.tag{
-    display:inline-block;
-    background:#e8edff;
-    color:#4160ff;
-    padding:10px 18px;
-    border-radius:12px;
-    font-weight:600;
-}
-
-h1{
-    margin:20px 0;
-    font-size:34px;
-    font-weight:800;
-}
-
-.detail{
-    display:flex;
-    gap:12px;
-    margin:14px 0;
-    align-items:flex-start;
-}
-
-.icon{
-    width:18px;
-    height:18px;
-    background:#4160ff;
-    border-radius:50%;
-    margin-top:4px;
-}
-
-/* =========================
-   TABS
-========================= */
-
-.tabs{
-    display:flex;
-    gap:10px;
-    margin-top:30px;
-    border-bottom:1px solid #ddd;
-    overflow:auto;
-}
-
-.tab{
-    padding:14px 18px;
-    cursor:pointer;
-    white-space:nowrap;
-}
-
-.tab.active{
-    border-bottom:3px solid #4160ff;
-    color:#4160ff;
-    font-weight:700;
-}
-
-.tabcontent{
-    display:none;
-    padding-top:25px;
-    line-height:1.8;
-}
-
-.tabcontent.active{
-    display:block;
-}
-
-.tabcontent h2{
-    margin-bottom:15px;
-}
-
-ul{
-    padding-left:20px;
-}
-
-/* =========================
-   TICKET CARD
-========================= */
-
-.ticket-card{
-    margin-top:35px;
-    background:#eaf0f7;
-    border-radius:22px;
-    padding:22px;
-}
-
-.ticket-price{
-    font-size:22px;
-    font-weight:800;
-    color:#2346d6;
-}
-
-.buy{
-    display:block;
-    text-align:center;
-    background:#4160ff;
-    color:#fff;
-    text-decoration:none;
-    padding:16px;
-    border-radius:14px;
-    margin-top:15px;
-    font-weight:700;
-    transition:.2s;
-}
-
-.buy:hover{
-    background:#2948e8;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:768px){
-
-    .navbar{
-        height:95px;
-        padding:0 15px;
-    }
-
-    .logo img{
-        height:55px;
-    }
-
-    .lang-btn{
-        min-width:95px;
-        height:55px;
-        font-size:18px;
-    }
-
-    .icon-btn{
-        width:55px;
-        height:55px;
-        font-size:22px;
-    }
-
-    .nav-right{
-        gap:10px;
-    }
-
-    h1{
-        font-size:26px;
-    }
-
-    .container{
-        padding:18px;
-    }
-
-}
-
 </style>
 </head>
 <body>
-
-<!-- NAVBAR -->
-
-<nav class="navbar">
-
-    <div class="logo">
-        <img src="2677.jpg" alt="Logo">
-    </div>
-
-    <div class="nav-right">
-
-        <button class="lang-btn">
-            <span class="flag"></span>
-            ID
-        </button>
-
-        <button class="icon-btn">
-            🔍
-        </button>
-
-        <button class="icon-btn">
-            ☰
-        </button>
-
-    </div>
-
-</nav>
-
-<!-- CONTENT -->
-
 <div class="container">
 
-    <div class="tag">
-        🎵 Musik
-    </div>
+<div class="banner">
+<img src="banner-neverland.jpg" alt="Neverland">
+</div>
 
-    <h1>NEVERLAND BANDUNG</h1>
+<div class="category"><i class="fa-solid fa-music"></i> Musik</div>
+<div class="title">NEVERLAND BANDUNG</div>
 
-    <div class="detail">
-        <div class="icon"></div>
-        <div>16 Agustus 2026</div>
-    </div>
+<div class="section">
+<h3>Detail Acara</h3>
 
-    <div class="detail">
-        <div class="icon"></div>
-        <div>14:00 - 23:00 WIB</div>
-    </div>
+<div class="detail"><div class="icon"><i class="fa-solid fa-calendar"></i></div><p>16 Agustus 2026</p></div>
+<div class="detail"><div class="icon"><i class="fa-solid fa-clock"></i></div><p>14:00 - 23:00</p></div>
+<div class="detail"><div class="icon"><i class="fa-solid fa-location-dot"></i></div><p>Pangkalan TNI AU Husein Sastranegara, Kota Bandung, Jawa Barat</p></div>
 
-    <div class="detail">
-        <div class="icon"></div>
-        <div>Pangkalan TNI AU Husein Sastranegara, Bandung</div>
-    </div>
+<div class="label">Penyelenggara</div>
+<div class="organizer">
+<img src="logo-neverland.jpg">
+<strong>Neverland</strong>
+</div>
 
-    <!-- TAB MENU -->
+<div class="label">Media Sosial</div>
+</div>
 
-    <div class="tabs">
+<div class="tabs">
+<a class="active">Deskripsi</a>
+<a>Syarat & Ketentuan</a>
+<a>Talent</a>
+<a>Fasilitas</a>
+</div>
 
-        <div class="tab active"
-             onclick="openTab(event,'deskripsi')">
-             Deskripsi
-        </div>
+<div class="content">
+<p><b>Neverland</b> terinspirasi dari makna Neverland sebagai tempat untuk bermain, berpetualang dan melepas penat. Festival ini menghadirkan pengalaman musik yang seru dan penuh kebebasan.</p>
 
-        <div class="tab"
-             onclick="openTab(event,'syarat')">
-             Syarat
-        </div>
+<h2 style="margin:30px 0 16px">Talent</h2>
+<div class="talent-item"><img src="lavora.jpg"><strong>LAVORA</strong></div>
+<div class="talent-item"><img src="ndx.jpg"><strong>NDX AKA</strong></div>
+<div class="talent-item"><img src="guyon.jpg"><strong>GUYON WATON</strong></div>
 
-        <div class="tab"
-             onclick="openTab(event,'talent')">
-             Talent
-        </div>
-
-        <div class="tab"
-             onclick="openTab(event,'fasilitas')">
-             Fasilitas
-        </div>
-
-    </div>
-
-    <!-- DESKRIPSI -->
-
-    <div id="deskripsi" class="tabcontent active">
-
-        <h2>Deskripsi</h2>
-
-        <p>
-            Neverland adalah festival musik yang menghadirkan
-            pengalaman hiburan, kebersamaan, dan berbagai
-            penampilan spesial dalam satu acara.
-        </p>
-
-    </div>
-
-    <!-- SYARAT -->
-
-    <div id="syarat" class="tabcontent">
-
-        <h2>Syarat & Ketentuan</h2>
-
-        <ul>
-            <li>Tiket hanya berlaku untuk satu orang.</li>
-            <li>Tiket yang hilang tidak dapat diganti.</li>
-            <li>Dilarang membawa barang berbahaya.</li>
-            <li>Wajib mengikuti peraturan panitia.</li>
-        </ul>
-
-    </div>
-
-    <!-- TALENT -->
-
-    <div id="talent" class="tabcontent">
-
-        <h2>Talent</h2>
-
-        <ul>
-            <li>LAVORA</li>
-            <li>NDX AKA</li>
-            <li>GUYON WATON</li>
-        </ul>
-
-    </div>
-
-    <!-- FASILITAS -->
-
-    <div id="fasilitas" class="tabcontent">
-
-        <h2>Fasilitas</h2>
-
-        <ul>
-            <li>Food Court</li>
-            <li>Musholla</li>
-            <li>Pos Medis</li>
-            <li>Area Parkir</li>
-            <li>Toilet</li>
-        </ul>
-
-    </div>
-
-    <!-- TIKET -->
-
-    <div class="ticket-card">
-
-        <div class="ticket-price">
-            Harga mulai dari Rp100.000
-        </div>
-
-        <a class="buy" href="tiket.html">
-            🎫 Beli Tiket
-        </a>
-
-    </div>
+<h2 style="margin:40px 0 16px">Fasilitas Event</h2>
+<div class="facilities">
+<div class="facility"><i class="fa-solid fa-utensils"></i>Food Court</div>
+<div class="facility"><i class="fa-solid fa-circle-plus"></i>Medis</div>
+<div class="facility"><i class="fa-solid fa-mosque"></i>Musholla</div>
+<div class="facility"><i class="fa-solid fa-square-parking"></i>Area Parkir</div>
+<div class="facility"><i class="fa-solid fa-camera"></i>Photo Booth</div>
+<div class="facility"><i class="fa-solid fa-toilet"></i>Toilet</div>
+</div>
+</div>
 
 </div>
 
-<script>
-
-function openTab(evt,id){
-
-    document
-    .querySelectorAll('.tabcontent')
-    .forEach(el => el.classList.remove('active'));
-
-    document
-    .querySelectorAll('.tab')
-    .forEach(el => el.classList.remove('active'));
-
-    document
-    .getElementById(id)
-    .classList.add('active');
-
-    evt.currentTarget
-    .classList.add('active');
-}
-
-</script>
-
+<div class="ticket-box">
+<div class="price">
+<span>Harga mulai dari</span>
+<strong>Rp100.000</strong>
+</div>
+<a href="#" class="btn"><i class="fa-solid fa-ticket"></i> Beli Tiket</a>
+</div>
 </body>
 </html>
