@@ -2,82 +2,148 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Neverland Ticketing Ultra</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VENTIX.ID - Pilih Tiket</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins,sans-serif}
-body{background:#f5f6f8;color:#111;padding-bottom:150px}
-.banner{height:260px;background:linear-gradient(135deg,#1738b8,#4160ff);display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff}
-.banner h1{font-size:42px}.banner p{opacity:.9}
-.wrap{max-width:950px;margin:auto;padding:20px}
-.title{font-size:32px;font-weight:700;margin:20px 0}
-.ticket{background:#fff;border-radius:30px;border:1px solid #e4e8ef;box-shadow:0 8px 25px rgba(0,0,0,.05);margin-bottom:22px;position:relative;overflow:hidden}
-.ticket:before,.ticket:after{content:'';position:absolute;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:50%;background:#f5f6f8;border:1px solid #e4e8ef}
-.ticket:before{left:-15px}.ticket:after{right:-15px}
-.top,.bottom{padding:24px;display:flex;justify-content:space-between;align-items:center}
-.sep{border-top:2px dashed #e8ebf0}
-.name{font-size:20px;font-weight:700}
-.desc{padding:0 24px 20px;color:#667085;font-size:14px}
-.badge{padding:8px 14px;border-radius:12px;font-size:13px;font-weight:700}
-.sale{background:#dfe7ff;color:#4160ff}
-.sold{background:#ffe4e4;color:#d33}
-.price{font-size:28px;font-weight:700}
-.pick{background:#4160ff;color:#fff;border:none;padding:14px 20px;border-radius:14px;font-weight:700;cursor:pointer}
-.counter{display:none;gap:12px;align-items:center}
-.counter button{width:44px;height:44px;border:none;border-radius:12px;background:#4160ff;color:#fff;font-size:24px}
-.qty{font-size:22px;font-weight:700}
-.footer{position:fixed;left:0;right:0;bottom:0;background:#fff;padding:18px;box-shadow:0 -8px 25px rgba(0,0,0,.08)}
-.buy{width:100%;margin-top:10px;border:none;border-radius:16px;padding:18px;background:#4160ff;color:#fff;font-size:20px;font-weight:700}
-.small{color:#777}
-.row{display:flex;justify-content:space-between;align-items:center}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f5f7fb;color:#111;padding-bottom:180px}
+.header{position:sticky;top:0;z-index:1000;background:#fff;padding:14px 22px;box-shadow:0 2px 15px rgba(0,0,0,.05);display:flex;justify-content:space-between;align-items:center}
+.logo{height:48px}
+.lang{padding:8px 14px;background:#eef3ff;border-radius:999px;font-size:13px;font-weight:700;color:#2554ff}
+.hero{background:linear-gradient(135deg,#1537b9,#4160ff);color:#fff}
+.banner-img{width:100%;max-height:420px;object-fit:cover;display:block}
+.event-info{padding:25px}
+.event-title{font-size:34px;font-weight:800}
+.event-sub{opacity:.9}
+.container{max-width:1100px;margin:auto;padding:25px}
+.section-title{font-size:30px;font-weight:800;margin-bottom:20px}
+.ticket{background:#fff;border-radius:28px;margin-bottom:24px;overflow:hidden;border:1px solid #e8edf5;box-shadow:0 8px 25px rgba(0,0,0,.05)}
+.ticket-top,.ticket-bottom{padding:24px;display:flex;justify-content:space-between;align-items:center;gap:15px}
+.ticket-desc{padding:0 24px 20px;color:#6b7280}
+.ticket-separator{border-top:2px dashed #dfe5ee;margin:0 24px}
+.ticket-name{font-size:20px;font-weight:700}
+.price{font-size:28px;font-weight:800}
+.badge{padding:8px 14px;border-radius:999px;font-size:12px;font-weight:700}
+.sale{background:#e7edff;color:#3158ff}
+.sold{background:#ffe5e5;color:#dc2626}
+.pick-btn{background:#3158ff;color:#fff;border:none;padding:14px 22px;border-radius:14px;font-weight:700;cursor:pointer}
+.sold-text{font-weight:800;color:#dc2626}
+.counter{display:none;align-items:center;gap:12px}
+.counter button{width:45px;height:45px;border:none;border-radius:12px;background:#3158ff;color:#fff;font-size:24px}
+.counter span{font-size:22px;font-weight:800}
+
+.stock-alert{
+display:inline-flex;align-items:center;gap:8px;margin-top:12px;
+padding:8px 14px;border-radius:999px;
+background:linear-gradient(135deg,#fff3cd,#ffe08a);
+color:#b45309;font-size:13px;font-weight:700;
+animation:pulse 1.8s infinite;box-shadow:0 6px 18px rgba(255,193,7,.35);
+}
+.stock-dot{width:10px;height:10px;background:#ef4444;border-radius:50%;animation:blink 1s infinite}
+@keyframes pulse{50%{transform:scale(1.04)}}
+@keyframes blink{50%{opacity:.25}}
+
+.footer{
+position:fixed;left:12px;right:12px;bottom:12px;background:#fff;
+border-radius:24px;
+padding:18px 22px;border-top:1px solid #edf1f7;
+box-shadow:0 15px 40px rgba(0,0,0,.12)
+}
+.footer-wrap{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.footer-small{font-size:13px;color:#6b7280}
+.footer-total{font-size:26px;font-weight:800}
+.buy-btn{
+width:100%;border:none;padding:18px;border-radius:16px;
+background:linear-gradient(135deg,#3158ff,#5673ff);
+color:#fff;font-size:18px;font-weight:700
+}
+.buy-btn:disabled{background:#b7c2ff}
 </style>
 </head>
 <body>
-<div class="banner">
-<div class="NEVERLAND BANDUNG">
-    <img src="banner-neverland2.png" alt="banner">
+<header class="header">
+<img src="artatix.png" class="logo">
+<div class="lang">ID</div>
+</header>
+
+<section class="hero">
+<img src="banner-never.png" class="banner-img">
+<div class="event-info">
+<div class="event-title">NEVERLAND BANDUNG</div>
+<div class="event-sub">Festival Musik & Hiburan</div>
 </div>
-<div class="title">🎫 Kategori Tiket</div>
-<div id="list"></div>
+</section>
+
+<div class="container">
+<div class="section-title">🎫 Kategori Tiket</div>
+<div id="ticketList"></div>
 </div>
+
 <div class="footer">
-<div class="row">
-<div><div class="small" id="qtyText">0 Tiket Dipilih</div><div id="totalText"><b>Rp100.000</b></div></div>
-<div><b>Total</b></div>
+<div class="footer-wrap">
+<div>
+<div class="footer-small" id="selectedQty">0 Tiket Dipilih</div>
+<div class="footer-total" id="selectedTotal">Rp0</div>
 </div>
-<button class="buy" onclick="checkout()">Beli Sekarang</button>
+<div style="text-align:right">
+<div class="footer-small">Pembayaran Aman</div>
+<b>Total Tagihan</b>
 </div>
+</div>
+<button id="buyBtn" class="buy-btn" disabled>Beli Sekarang</button>
+</div>
+
 <script>
-const data=[
-['PRESALE - FESTIVAL',140000,true,'Akses Festival Area'],
-['NORMAL - FESTIVAL',185000,true,'Tiket Festival Reguler'],
-['NORMAL - VIP',255000,true,'Akses VIP Area'],
-['EARLY BIRD - FESTIVAL',100000,false,'Sold Out'],
-['EARLY BIRD - VIP',150000,false,'Sold Out'],
-['PRESALE - VIP',200000,false,'Sold Out']
+const tickets=[
+{name:'NORMAL - FESTIVAL',price:185000,sale:true,desc:'Tiket Festival Reguler'},
+{name:'NORMAL - VIP',price:255000,sale:true,desc:'Akses VIP Area',stock:true},
+{name:'EARLY BIRD - FESTIVAL',price:100000,sale:false,desc:'Kategori telah habis'},
+{name:'EARLY BIRD - VIP',price:150000,sale:false,desc:'Kategori telah habis'},
+{name:'PRESALE - FESTIVAL',price:140000,sale:false,desc:'Kategori telah habis'},
+{name:'PRESALE - VIP',price:200000,sale:false,desc:'Kategori telah habis'}
 ];
-let total=0,qty=0,selected={};
-const list=document.getElementById('list');
-data.forEach((t,i)=>{
-list.innerHTML+=`<div class="ticket">
-<div class="top"><div class="name">${t[0]}</div><div class="badge ${t[2]?'sale':'sold'}">${t[2]?'ON SALE':'SOLD OUT'}</div></div>
-<div class="desc">${t[3]}</div>
-<div class="sep"></div>
-<div class="bottom">
-<div class="price">Rp${t[1].toLocaleString('id-ID')}</div>
-${t[2]?`<button class="pick" id="b${i}" onclick="pick(${i},${t[1]})">Pilih Tiket</button>
-<div class="counter" id="c${i}"><button onclick="minus(${i},${t[1]})">−</button><span class="qty" id="q${i}">1</span><button onclick="plus(${i},${t[1]})">+</button></div>`:`<button class="pick" disabled>SOLD OUT</button>`}
-</div></div>`;
+
+let totalHarga=0,totalTiket=0; const selected={};
+function rupiah(n){return 'Rp'+n.toLocaleString('id-ID')}
+const list=document.getElementById('ticketList');
+
+tickets.forEach((item,index)=>{
+list.innerHTML+=`
+<div class="ticket">
+<div class="ticket-top">
+<div class="ticket-name">${item.name}</div>
+<div class="badge ${item.sale?'sale':'sold'}">${item.sale?'ON SALE':'SOLD OUT'}</div>
+</div>
+<div class="ticket-desc">
+${item.desc}
+${item.stock?'<div class="stock-alert"><span class="stock-dot"></span>Tersisa 9 Tiket</div>':''}
+</div>
+<div class="ticket-separator"></div>
+<div class="ticket-bottom">
+<div class="price">${rupiah(item.price)}</div>
+${item.sale?`
+<button class="pick-btn" id="btn${index}" onclick="showCounter(${index},${item.price})">Pilih Tiket</button>
+<div class="counter" id="counter${index}">
+<button onclick="minus(${index},${item.price})">−</button>
+<span id="qty${index}">1</span>
+<button onclick="plus(${index},${item.price})">+</button>
+</div>`:`<div class="sold-text">SOLD OUT</div>`}
+</div></div>`
 });
-function rup(n){return 'Rp'+n.toLocaleString('id-ID')}
-function update(){qtyText.innerText=qty+' Tiket Dipilih';totalText.innerHTML='<b>'+(total?rup(total):'Rp100.000')+'</b>'}
-function pick(i,p){selected[i]=1;qty++;total+=p;b(i).style.display='none';c(i).style.display='flex';update()}
-function plus(i,p){selected[i]++;qty++;total+=p;q(i).innerText=selected[i];update()}
-function minus(i,p){if(selected[i]>1){selected[i]--;qty--;total-=p;q(i).innerText=selected[i];update()}}
-function b(i){return document.getElementById('b'+i)}
-function c(i){return document.getElementById('c'+i)}
-function q(i){return document.getElementById('q'+i)}
-function checkout(){localStorage.setItem('jumlahTiket',qty);localStorage.setItem('totalPembayaran',total);window.location.href='from.html'}
+
+function updateFooter(){
+selectedQty.innerText=totalTiket+' Tiket Dipilih';
+selectedTotal.innerText=rupiah(totalHarga);
+buyBtn.disabled=totalTiket===0;
+}
+function showCounter(i,p){selected[i]=1;totalTiket++;totalHarga+=p;btn(i).style.display='none';ctr(i).style.display='flex';updateFooter();}
+function plus(i,p){selected[i]++;totalTiket++;totalHarga+=p;qty(i).innerText=selected[i];updateFooter();}
+function minus(i,p){selected[i]--;totalTiket--;totalHarga-=p;if(selected[i]<=0){ctr(i).style.display='none';btn(i).style.display='block';}else{qty(i).innerText=selected[i]}updateFooter();}
+const btn=i=>document.getElementById('btn'+i);
+const ctr=i=>document.getElementById('counter'+i);
+const qty=i=>document.getElementById('qty'+i);
+updateFooter();
 </script>
-</body></html>
+</body>
+</html>
