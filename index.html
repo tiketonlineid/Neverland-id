@@ -6,10 +6,22 @@
 <title>Neverland Bandung</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Poppins,sans-serif;background:#f5f6f8;color:#111827}
-.header{background:#1738b8;padding:15px 24px;display:flex;justify-content:space-between;align-items:center;color:#fff}
-.container{max-width:900px;margin:auto;padding:24px}
+.navbar{
+    height:120px;
+    background:#0b2da8;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 30px;
+}
+
+.nav-right{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
 .tag{display:inline-block;background:#e8edff;color:#4160ff;padding:10px 18px;border-radius:12px;font-weight:600}
 h1{margin:20px 0}
 .detail{display:flex;gap:12px;margin:12px 0}
@@ -26,16 +38,31 @@ ul{padding-left:20px}
 </head>
 <body>
 
-<header class="navbar">
-    <div class="logo">Artatix</div>
+<header <nav class="navbar">
 
-    <div class="navbar-actions">
-        <button class="language-btn">ID</button>
-        <button class="search-btn">🔍</button>
-        <button class="menu-btn">☰</button>
+    <div class="logo">
+        <img src="2677.jpg" alt="VENTIX.ID">
     </div>
-</header>
 
+    <div class="nav-actions">
+
+        <button class="lang-btn">
+            <span class="flag"></span>
+            ID
+        </button>
+
+        <button class="icon-btn">
+            🔍
+        </button>
+
+        <button class="icon-btn">
+            ☰
+        </button>
+
+    </div>
+
+</nav>
+    
 <div class="container">
 <div class="tag">🎵 Musik</div>
 <h1>NEVERLAND BANDUNG</h1>
